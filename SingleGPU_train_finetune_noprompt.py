@@ -176,8 +176,8 @@ if __name__ == "__main__":
     args = cfg.parse_args()
     dataset_name = args.dataset_name
     print('train dataset: {}'.format(dataset_name)) 
-    train_img_list = args.img_folder + dataset_name + '/train_5shot.csv'
-    val_img_list = args.img_folder + dataset_name + '/val_5shot.csv'
+    train_img_list = args.img_folder + dataset_name + '/train.csv'
+    val_img_list = args.img_folder + dataset_name + '/val.csv'
     
     num_workers = 8
     if_vis = True

@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Set CUDA device
-export CUDA_VISIBLE_DEVICES="5,6"
+export CUDA_VISIBLE_DEVICES="0"
 
 # Define variables
 arch="vit_b"  # Change this value as needed
 finetune_type= "vanilla"
-dataset_name="MRI-Prostate"  # Assuming you set this if it's dynamic
+dataset_name="mastectomy"  # Assuming you set this if it's dynamic
 
 # Construct the checkpoint directory argument
 dir_checkpoint="2D-SAM_${arch}_encoderdecoder_${finetune_type}_${dataset_name}_noprompt"

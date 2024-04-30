@@ -113,5 +113,5 @@ if __name__ == "__main__":
     args = cfg.parse_args()
     dataset_name = args.dataset_name
     print('train dataset: {}'.format(dataset_name)) 
-    test_img_list = args.img_folder + dataset_name + '/val_5shot.csv'
+    test_img_list = args.img_folder + dataset_name + '/val.csv'
     main(args,test_img_list)

@@ -5,7 +5,7 @@ def parse_args():
     parser.add_argument('-net', type=str, default='sam', help='net type')
     parser.add_argument('-arch', type=str, default='vit_b', help='net architecture, pick between vit_h, vit_b, vit_t')
     parser.add_argument('-baseline', type=str, default='unet', help='baseline net type')
-    parser.add_argument('-dataset_name', type=str, default='MRI-Prostate', help='the name of dataset to be finetuned')
+    parser.add_argument('-dataset_name', type=str, default='mastectomy', help='the name of dataset to be finetuned')
     
     parser.add_argument('-img_folder', type=str, default='./datasets/', help='the folder putting images')
     parser.add_argument('-mask_folder', type=str, default='./datasets/', help='the folder putting masks')
@@ -51,7 +51,7 @@ def parse_args():
     parser.add_argument('-num_sample', type=int, default=4 , help='sample pos and neg')
     parser.add_argument('-roi_size', type=int, default=96 , help='resolution of roi')
 
-    parser.add_argument('-if_update_encoder', type=bool, default=False , help='if update_image_encoder')
+    parser.add_argument('-if_update_encoder', type=bool, default=True , help='if update_image_encoder')
     parser.add_argument('-if_encoder_adapter', type=bool, default=False , help='if add adapter to encoder')
     parser.add_argument('-encoder-adapter-depths', type=list, default=[0,1,10,11] , help='the depth of blocks to add adapter')
     parser.add_argument('-if_mask_decoder_adapter', type=bool, default=False , help='if add adapter to mask decoder')
@@ -63,7 +63,7 @@ def parse_args():
     parser.add_argument('-encoder_lora_layer', type=list, default=[0,1,10,11] , help='the depth of blocks to add lora, if [], it will add at each layer')
     
     parser.add_argument('-if_split_encoder_gpus', type=bool, default=False , help='if split encoder to multiple gpus')
-    parser.add_argument('-devices', type=list, default=[0,1] , help='if split encoder to multiple gpus')
+    parser.add_argument('-devices', type=list, default=[0] , help='if split encoder to multiple gpus')
     parser.add_argument('-gpu_fractions', type=list, default=[0.5,0.5] , help='how to split encoder to multiple gpus')
     
   
