@@ -52,6 +52,8 @@ class Public_dataset(Dataset):
                 mask_path = data.split(',')[1]
                 if mask_path.startswith('/'):
                     mask_path = mask_path[1:]
+                print("MASKPATH", mask_path)
+                print("MASKFOLDER", mask_folder)
                 msk = Image.open(os.path.join(self.mask_folder,mask_path)).convert('L')
                 mask_cls = np.array(msk,dtype=int)
                 if part_list[0]=='all' and np.sum(mask_cls)>0:
