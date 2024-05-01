@@ -178,7 +178,8 @@ if __name__ == "__main__":
     print('train dataset: {}'.format(dataset_name)) 
     train_img_list = args.img_folder + dataset_name + '/train.csv'
     val_img_list = args.img_folder + dataset_name + '/val.csv'
-    
+    print("IMAGE FOLDER: ", args.img_folder)
+    print("LIST: ", train_img_list)
     num_workers = 8
     if_vis = True
 
