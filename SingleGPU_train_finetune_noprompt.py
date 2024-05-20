@@ -35,7 +35,7 @@ from utils.utils import vis_image
 import cfg
 # Use the arguments
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '5'
+os.environ['CUDA_VISIBLE_DEVICES'] = '1'
 
 def train_model(trainloader,valloader,dir_checkpoint,epochs):
     if args.if_warmup:

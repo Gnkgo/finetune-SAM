@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set CUDA device
-export CUDA_VISIBLE_DEVICES="5"
+export CUDA_VISIBLE_DEVICES="1"
 
 # Define variables
 arch="vit_b"  # Change this value as needed
