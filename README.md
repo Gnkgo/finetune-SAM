@@ -15,6 +15,17 @@ Based on our extensive experiments, we found that:
 4. further training SAM with self-supervised learning can improve final model performance.
 
 To use our codebase, we provide (a) codes to fine-tune your medical imaging dataset on either automatic/prompt-based setting, (b) pretrained weights we got from Setup 3 using task-agnostic self-supervised learning, which we found as good pretrained weights instead of initial SAM providing better performance for downstream tasks.
+
+## Bug fixes:
+- [X] May-10-2024, fixed the bug that when we updated the dataset.py at May 6th for multi class support, the mask resize processing was accidently forgotten.
+- [X] May-10-2024, fixed the bug that the provided demo for single gpu trianing only support updating decoder but the image encoder's gradients were not calculated.
+
+## Updated functions:
+- [X] May-15-2024, add functions to auto save training args and load args for validation; save your time for manual definition.
+- [X] May-15-2024, add two jupyter-notebooks showing examples about how to make predictions on 3D volumes/2D pngs without ground truth; and for visualization.
+- [X] May-15-2024, provide two additional example demos. 
+
+
 ## a): fine-tune to one single task-specific dataset 
 ### Step 0: setup environment
 ```bash
@@ -72,6 +83,8 @@ args.if_update_encoder = False
 - If you want to add adapter blocks on the image encoder and mask decoder both:
 ```
 args.if_mask_decoder_adapter=True
+
+args.if_update_encoder = True
 args.if_encoder_adapter=True
 # You can pick the image encoder blocks by adding adapters
 args.encoder_adapter_depths = range(0,12)
@@ -85,7 +98,8 @@ args.if_mask_decoder_adapter=True
 -  If you want to add LoRA blocks on the image encoder and mask decoder both:
 ```
 # define which blocks you would like to add LoRAs, if [] is empty, it will be added at **each** block.
-args.if_encoder_lora_layer = True 
+args.if_update_encoder = True
+args.if_encoder_lora_layer = True
 args.encoder_lora_layer = []
 args.if_decoder_lora_layer = True  
 ```
@@ -115,8 +129,34 @@ args.if_split_encoder_gpus = True
 args.gpu_fractions = [0.5,0.5] # the fraction of image encoder on each GPU
 ```
 
+### Multi-cls segmentation VS. binary segmentation
+1. if you want to do binary segmentation:
+```
+# set the output channels as 2 (background, object)
+args.num_cls = 2
+```
+
+If your target objects actually have multiple labels but you want to combine them as binary:
+```
+# put the dataset's parameter for 'target' as 'combine_all', for example:
+Public_dataset(args,args.img_folder, args.mask_folder, train_img_list,phase='train',targets=['combine_all'],normalize_type='sam',if_prompt=False)
+```
+2. if you want to do multi-cls segmentation:
+```
+# set the output channels as num_of_target_objects + 1 (background, object1, object2,...)
+args.num_cls = n+1
+
+# put the dataset's parameter for 'target' as 'multi_all', for example:
+Public_dataset(args,args.img_folder, args.mask_folder, train_img_list,phase='train',targets=['multi_all'],normalize_type='sam',if_prompt=False)
+```
+
+3. if you actually have multiple different targets but you want to select a subset, such as one target from your mask for trianing:
+```
+Todo
+```
+
 ### Example bash file for running the training
-Here is one example (train_singlegpu_demo.sh) of running the training on a demo dataset using **Adapter** and updating **Mask Decoder** only.
+Here is one example (train_singlegpu_demo.sh) of running the training on a demo dataset using **vit-b** with **Adapter** and updating **Mask Decoder** only.
 ```
 #!/bin/bash
 
@@ -127,6 +167,12 @@ export CUDA_VISIBLE_DEVICES="5"
 arch="vit_b"  # Change this value as needed
 finetune_type="adapter"
 dataset_name="MRI-Prostate"  # Assuming you set this if it's dynamic
+targets='combine_all' # make it as binary segmentation 'multi_all' for multi cls segmentation
+# Construct train and validation image list paths
+img_folder="./datasets"  # Assuming this is the folder where images are stored
+train_img_list="${img_folder}/${dataset_name}/train_5shot.csv"
+val_img_list="${img_folder}/${dataset_name}/val_5shot.csv"
+
 
 # Construct the checkpoint directory argument
 dir_checkpoint="2D-SAM_${arch}_decoder_${finetune_type}_${dataset_name}_noprompt"
@@ -137,9 +183,13 @@ python SingleGPU_train_finetune_noprompt.py \
     -finetune_type "$finetune_type" \
     -arch "$arch" \
     -if_mask_decoder_adapter True \
+    -img_folder "$img_folder" \
+    -mask_folder "$img_folder" \
     -sam_ckpt "sam_vit_b_01ec64.pth" \
     -dataset_name "$dataset_name" \
-    -dir_checkpoint "$dir_checkpoint"
+    -dir_checkpoint "$dir_checkpoint" \
+    -train_img_list "$train_img_list" \
+    -val_img_list "$val_img_list"
 ```
 To run the training, just use the command:
 ```
@@ -175,6 +225,9 @@ sparse_emb, dense_emb = sam_fine_tune.prompt_encoder(
 bash val_singlegpu_demo.sh
 ```
 
+## Additional model inference mode and prediction visualization
+Refer to  2D_predictions_with_vis.ipynb and 3D_predictions_with_vis.ipynb.
+
 
 ## b): fine-tune from task-expansive pretrained weights
 If you want to use MedSAM as pretrained weights, please refer to [MedSAM](https://github.com/bowang-lab/MedSAM) and download their checkpoints as 'medsam_vit_b.pth'.
@@ -182,6 +235,11 @@ If you want to use MedSAM as pretrained weights, please refer to [MedSAM](https:
 ## c): fine-tune from task-agnostic self-supervised pre-trained weights
 In our paper, we found that training in Setup 3, which starts from self-supervised weights and then fine-tuning to one customized dataset using Parameter Efficient Learning to fine-tune both Encoder/Decoder, provides the best model.
 To use our self-supervised pretrained weights, please refer to [SSLSAM](https://drive.google.com/drive/folders/1JAoy-Mh5QgxXsjWtQhMjOX16dN1kytLQ).
+
+## ToDOlist:
+ - [x] add the branch of codes for automatic multi-cls segmentation
+ - [ ] add the branch of codes for prompt-based multi-cls segmentation. output has two channels and random select one target at one time during training.
+
 
 ## Acknowledgement
 This work was supported by Duke Univeristy.
