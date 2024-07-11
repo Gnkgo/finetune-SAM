@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set CUDA device
-export CUDA_VISIBLE_DEVICES="0"
+export CUDA_VISIBLE_DEVICES="1"
 
 # Define variables
 arch="vit_b"  # Change this value as needed
@@ -17,6 +17,10 @@ python SingleGPU_train_finetune_noprompt.py \
     -finetune_type "$finetune_type" \
     -arch "$arch" \
     -if_mask_decoder_adapter True \
+    -img_folder "$img_folder" \
+    -mask_folder "$img_folder" \
     -sam_ckpt "sam_vit_b_01ec64.pth" \
     -dataset_name "$dataset_name" \
-    -dir_checkpoint "$dir_checkpoint"
+    -dir_checkpoint "$dir_checkpoint" \
+    -train_img_list "$train_img_list" \
+    -val_img_list "$val_img_list"

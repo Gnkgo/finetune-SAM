@@ -28,14 +28,19 @@ from torch.nn.functional import one_hot
 from pathlib import Path
 from tqdm import tqdm
 from utils.losses import DiceLoss
-from utils.dsc import dice_coeff
+from utils.dsc import dice_coeff_multi_class
 import cv2
 import monai
 from utils.utils import vis_image
 import cfg
+import json
 # Use the arguments
+args = cfg.parse_args()
+# you need to modify based on the layer of adapters you are choosing to add
+# comment it if you are not using adapter
+#args.encoder_adapter_depths = [0,1,2,3]
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+os.environ['CUDA_VISIBLE_DEVICES'] = '1'
 
 def train_model(trainloader,valloader,dir_checkpoint,epochs):
     if args.if_warmup:
@@ -43,16 +48,25 @@ def train_model(trainloader,valloader,dir_checkpoint,epochs):
     else:
         b_lr = args.lr
     
-    sam = sam_model_registry[args.arch](args,checkpoint=os.path.join(args.sam_ckpt),num_classes=2)
+    sam = sam_model_registry[args.arch](args,checkpoint=os.path.join(args.sam_ckpt),num_classes=args.num_cls)
     if args.finetune_type == 'adapter':
         for n, value in sam.named_parameters():
             if "Adapter" not in n: # only update parameters in adapter
                 value.requires_grad = False
+        print('if update encoder:',args.if_update_encoder)
+        print('if image encoder adapter:',args.if_encoder_adapter)
         print('if mask decoder adapter:',args.if_mask_decoder_adapter)
-    elif args.finetune_type == 'vanilla' and args.if_update_encoder==False:      
+        if args.if_encoder_adapter:
+            print('added adapter layers:',args.encoder_adapter_depths)
+        
+    elif args.finetune_type == 'vanilla' and args.if_update_encoder==False:   
+        print('if update encoder:',args.if_update_encoder)
         for n, value in sam.image_encoder.named_parameters():
             value.requires_grad = False
     elif args.finetune_type == 'lora':
+        print('if update encoder:',args.if_update_encoder)
+        print('if image encoder lora:',args.if_encoder_lora_layer)
+        print('if mask decoder lora:',args.if_decoder_lora_layer)
         sam = LoRA_Sam(args,sam,r=4).sam
     sam.to('cuda')
         
@@ -72,15 +86,19 @@ def train_model(trainloader,valloader,dir_checkpoint,epochs):
     for epoch in pbar:
         sam.train()
         train_loss = 0
-        for i,data in enumerate(trainloader):
+        for i,data in enumerate(tqdm(trainloader)):
             imgs = data['image'].cuda()
             msks = torchvision.transforms.Resize((args.out_size,args.out_size))(data['mask'])
             msks = msks.cuda()
 
-            with torch.no_grad():
-                img_emb= sam.image_encoder(imgs)
-                # get default embeddings 
-                sparse_emb, dense_emb = sam.prompt_encoder(
+            if args.if_update_encoder:
+                img_emb = sam.image_encoder(imgs)
+            else:
+                with torch.no_grad():
+                    img_emb = sam.image_encoder(imgs)
+            
+            # get default embeddings
+            sparse_emb, dense_emb = sam.prompt_encoder(
                 points=None,
                 boxes=None,
                 masks=None,
@@ -128,7 +146,7 @@ def train_model(trainloader,valloader,dir_checkpoint,epochs):
             dsc = 0
             sam.eval()
             with torch.no_grad():
-                for i,data in enumerate(valloader):
+                for i,data in enumerate(tqdm(valloader)):
                     imgs = data['image'].cuda()
                     msks = torchvision.transforms.Resize((args.out_size,args.out_size))(data['mask'])
                     msks = msks.cuda()
@@ -148,7 +166,7 @@ def train_model(trainloader,valloader,dir_checkpoint,epochs):
                                   )
                     loss = criterion1(pred,msks.float()) + criterion2(pred,torch.squeeze(msks.long(),1))
                     eval_loss +=loss.item()
-                    dsc_batch = dice_coeff((pred[:,1,:,:].cpu()>0).long(),msks.cpu().long()).item()
+                    dsc_batch = dice_coeff_multi_class(pred.argmax(dim=1).cpu(), torch.squeeze(msks.long(),1).cpu().long(),args.num_cls)
                     dsc+=dsc_batch
 
                 eval_loss /= (i+1)
@@ -162,7 +180,6 @@ def train_model(trainloader,valloader,dir_checkpoint,epochs):
                     val_largest_dsc = dsc
                     last_update_epoch = epoch
                     print('largest DSC now: {}'.format(dsc))
-                    Path(dir_checkpoint).mkdir(parents=True,exist_ok = True)
                     torch.save(sam.state_dict(),dir_checkpoint + '/checkpoint_best.pth')
                 elif (epoch-last_update_epoch)>20:
                     # the network haven't been updated for 20 epochs
@@ -173,18 +190,30 @@ def train_model(trainloader,valloader,dir_checkpoint,epochs):
                 
                 
 if __name__ == "__main__":
-    args = cfg.parse_args()
     dataset_name = args.dataset_name
     print('train dataset: {}'.format(dataset_name)) 
+<<<<<<< HEAD
     train_img_list = args.img_folder + dataset_name + '/train.csv'
     val_img_list = args.img_folder + dataset_name + '/val.csv'
     print("IMAGE FOLDER: ", args.img_folder)
     print("LIST: ", train_img_list)
     num_workers = 4
+=======
+    train_img_list = args.img_folder + dataset_name + '/train_5shot.csv'
+    val_img_list = args.img_folder + dataset_name + '/val_5shot.csv'
+    
+    num_workers = 8
+>>>>>>> 66c489631bae9c7e805cb8fe6dd9e9caf59ba5ab
     if_vis = True
+    Path(args.dir_checkpoint).mkdir(parents=True,exist_ok = True)
+    path_to_json = os.path.join(args.dir_checkpoint, "args.json")
+    args_dict = vars(args)
+    with open(path_to_json, 'w') as json_file:
+        json.dump(args_dict, json_file, indent=4)
+    print(args.targets)
 
-    train_dataset = Public_dataset(args,args.img_folder, args.mask_folder, train_img_list,phase='train',targets=['all'],normalize_type='sam',if_prompt=False)
-    eval_dataset = Public_dataset(args,args.img_folder, args.mask_folder, val_img_list,phase='val',targets=['all'],normalize_type='sam',if_prompt=False)
+    train_dataset = Public_dataset(args,args.img_folder, args.mask_folder, train_img_list,phase='train',targets=[args.targets],normalize_type='sam',if_prompt=False)
+    eval_dataset = Public_dataset(args,args.img_folder, args.mask_folder, val_img_list,phase='val',targets=[args.targets],normalize_type='sam',if_prompt=False)
     trainloader = DataLoader(train_dataset, batch_size=args.b, shuffle=True, num_workers=num_workers)
     valloader = DataLoader(eval_dataset, batch_size=args.b, shuffle=False, num_workers=num_workers)
 

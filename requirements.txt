@@ -93,7 +93,7 @@ termcolor==2.3.0
 tifffile==2023.8.30
 timm==0.9.7
 tokenizers==0.13.3
-torch
+torch==1.13.1
 torchio==0.19.1
 torchmetrics==1.1.2
 tqdm==4.66.1

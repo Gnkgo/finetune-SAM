@@ -74,3 +74,20 @@ class DiceSensitivityLoss(nn.Module):
         sen = (1. * intersection ) / (torch.mul(y_true_f,y_true_f).sum() + smooth)
 
         return 2 - dice-sen
+
+
+def dice_coeff_multi_class(pred, target, n_classes):
+    """Calculate the mean Dice Coefficient for multi-class data."""
+    dice_scores = []
+    for cls in range(n_classes):  # Iterate over each class
+        pred_cls = (pred == cls).long()  # Binary mask for current predicted class
+        target_cls = (target == cls).long()  # Binary mask for current actual class
+
+        smooth = 1.0
+        intersection = (pred_cls & target_cls).float().sum((1, 2))  # Sum over height and width dimensions
+        union = pred_cls.float().sum((1, 2)) + target_cls.float().sum((1, 2))
+        
+        dice = (2. * intersection + smooth) / (union + smooth)
+        dice_scores.append(dice)
+    
+    return torch.stack(dice_scores).mean() 
