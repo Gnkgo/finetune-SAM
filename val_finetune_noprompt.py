@@ -39,7 +39,7 @@ def main(args,test_image_list):
     cls_num = 2 # edit the class num 
     if args.finetune_type == 'adapter' or args.finetune_type == 'vanilla':
         sam_fine_tune = sam_model_registry[args.arch](args,checkpoint=os.path.join(args.dir_checkpoint,'checkpoint_best.pth'),num_classes=cls_num)
-    elif args.finetune_type = 'lora':
+    elif args.finetune_type == 'lora':
         sam = sam_model_registry[args.arch](args,checkpoint=os.path.join(args.sam_ckpt),num_classes=cls_num)
         sam_fine_tune = LoRA_Sam(args,sam,r=4).to('cuda').sam
         sam_fine_tune.load_state_dict(torch.load(args.dir_checkpoint + '/checkpoint_best.pth'), strict = False)
@@ -100,10 +100,10 @@ def main(args,test_image_list):
     class_iou /=(i+1)
     cls_dsc /=(i+1)
 
-    save_folder = os.path.join('test_results',args.dir_checkpoint)
+    save_folder = os.path.join('/cluster/home/jbrodbec/finetune-SAM/test_results',args.dir_checkpoint)
     Path(save_folder).mkdir(parents=True,exist_ok = True)
-    #np.save(os.path.join(save_folder,'test_masks.npy'),np.concatenate(pred_msk,axis=0))
-    #np.save(os.path.join(save_folder,'test_name.npy'),np.concatenate(np.expand_dims(img_name_list,0),axis=0))
+    np.save(os.path.join(save_folder,'test_masks.npy'),np.concatenate(pred_msk,axis=0))
+    np.save(os.path.join(save_folder,'test_name.npy'),np.concatenate(np.expand_dims(img_name_list,0),axis=0))
 
 
     print(dataset_name)      

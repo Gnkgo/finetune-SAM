@@ -1,0 +1,5 @@
+train dataset: mastectomy
+num with non-empty masks 45 num with all masks 45
+mastectomy
+class dsc: tensor([0.9740, 0.5739])
+class iou: tensor([0.9697, 0.4207])

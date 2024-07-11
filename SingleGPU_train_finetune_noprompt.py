@@ -35,7 +35,7 @@ from utils.utils import vis_image
 import cfg
 # Use the arguments
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '5'
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 def train_model(trainloader,valloader,dir_checkpoint,epochs):
     if args.if_warmup:
@@ -180,7 +180,7 @@ if __name__ == "__main__":
     val_img_list = args.img_folder + dataset_name + '/val.csv'
     print("IMAGE FOLDER: ", args.img_folder)
     print("LIST: ", train_img_list)
-    num_workers = 8
+    num_workers = 4
     if_vis = True
 
     train_dataset = Public_dataset(args,args.img_folder, args.mask_folder, train_img_list,phase='train',targets=['all'],normalize_type='sam',if_prompt=False)

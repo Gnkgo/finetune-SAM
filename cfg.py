@@ -7,8 +7,8 @@ def parse_args():
     parser.add_argument('-baseline', type=str, default='unet', help='baseline net type')
     parser.add_argument('-dataset_name', type=str, default='mastectomy', help='the name of dataset to be finetuned')
     
-    parser.add_argument('-img_folder', type=str, default='./datasets/', help='the folder putting images')
-    parser.add_argument('-mask_folder', type=str, default='./datasets/', help='the folder putting masks')
+    parser.add_argument('-img_folder', type=str, default='/cluster/home/jbrodbec/finetune-SAM/datasets/', help='the folder putting images')
+    parser.add_argument('-mask_folder', type=str, default='/cluster/home/jbrodbec/finetune-SAM/datasets/', help='the folder putting masks')
 
     parser.add_argument('-finetune_type', type=str, default='adapter', help='normalization type, pick among vanilla,adapter,lora')
     parser.add_argument('-normalize_type', type=str, default='sam', help='normalization type, pick between sam or medsam')
