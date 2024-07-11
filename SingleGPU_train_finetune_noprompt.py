@@ -40,7 +40,7 @@ args = cfg.parse_args()
 # comment it if you are not using adapter
 #args.encoder_adapter_depths = [0,1,2,3]
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+#os.environ['CUDA_VISIBLE_DEVICES'] = '3'
 
 def train_model(trainloader,valloader,dir_checkpoint,epochs):
     if args.if_warmup:
@@ -187,71 +187,26 @@ def train_model(trainloader,valloader,dir_checkpoint,epochs):
                     break
     writer.close()
                 
-    import os
-import json
-import time
-import torch
-from pathlib import Path
-from torch.utils.data import DataLoader
-import argparse
-
-def get_gpu_info():
-    if torch.cuda.is_available():
-        gpu_name = torch.cuda.get_device_name(0)
-        gpu_properties = torch.cuda.get_device_properties(0)
-        gpu_memory_total = gpu_properties.total_memory / (1024 ** 3)  # Convert bytes to GB
-        return f"GPU Model: {gpu_name}\nTotal GPU Memory: {gpu_memory_total:.2f} GB"
-    else:
-        return "No GPU available."
-
-# Start the timer
-
+                
+                
 if __name__ == "__main__":
-    start_time = time.time()
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset_name', type=str, required=True)
-    parser.add_argument('--img_folder', type=str, required=True)
-    parser.add_argument('--mask_folder', type=str, required=True)
-    parser.add_argument('--dir_checkpoint', type=str, required=True)
-    parser.add_argument('--targets', type=str, required=True)
-    parser.add_argument('--b', type=int, required=True)
-    parser.add_argument('--epochs', type=int, required=True)
-    args = parser.parse_args()
-
-    gpu_info = get_gpu_info()
-    print(gpu_info)  # Print GPU model
-
     dataset_name = args.dataset_name
     print('train dataset: {}'.format(dataset_name)) 
-    train_img_list = args.img_folder + dataset_name + '/train.csv'
-    val_img_list = args.img_folder + dataset_name + '/val.csv'
-    print("IMAGE FOLDER: ", args.img_folder)
-    print("LIST: ", train_img_list)
-    num_workers = 4
+    train_img_list = args.train_img_list
+    val_img_list = args.val_img_list
+    
+    num_workers = 8
     if_vis = True
-    Path(args.dir_checkpoint).mkdir(parents=True, exist_ok=True)
+    Path(args.dir_checkpoint).mkdir(parents=True,exist_ok = True)
     path_to_json = os.path.join(args.dir_checkpoint, "args.json")
     args_dict = vars(args)
     with open(path_to_json, 'w') as json_file:
         json.dump(args_dict, json_file, indent=4)
     print(args.targets)
 
-    train_dataset = Public_dataset(args, args.img_folder, args.mask_folder, train_img_list, phase='train', targets=[args.targets], normalize_type='sam', if_prompt=False)
-    eval_dataset = Public_dataset(args, args.img_folder, args.mask_folder, val_img_list, phase='val', targets=[args.targets], normalize_type='sam', if_prompt=False)
+    train_dataset = Public_dataset(args,args.img_folder, args.mask_folder, train_img_list,phase='train',targets=[args.targets],normalize_type='sam',if_prompt=False)
+    eval_dataset = Public_dataset(args,args.img_folder, args.mask_folder, val_img_list,phase='val',targets=[args.targets],normalize_type='sam',if_prompt=False)
     trainloader = DataLoader(train_dataset, batch_size=args.b, shuffle=True, num_workers=num_workers)
     valloader = DataLoader(eval_dataset, batch_size=args.b, shuffle=False, num_workers=num_workers)
 
-    train_model(trainloader, valloader, args.dir_checkpoint, args.epochs)
-
-    # End the timer and calculate the runtime
-    end_time = time.time()
-    total_time = end_time - start_time
-    runtime_info = f"Total runtime: {total_time:.2f} seconds"
-    print(runtime_info)
-
-    # Save GPU info and runtime to a file
-    info_file_path = os.path.join(args.dir_checkpoint, "runtime_info.txt")
-    with open(info_file_path, 'w') as info_file:
-        info_file.write(gpu_info + "\n")
-        info_file.write(runtime_info + "\n")
+    train_model(trainloader,valloader,args.dir_checkpoint,args.epochs)

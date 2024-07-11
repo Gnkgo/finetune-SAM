@@ -108,3 +108,11 @@ websockets==11.0.3
 werkzeug==2.3.7
 wrapt==1.15.0
 yarl==1.9.2
+
+nnUNetv2_train 011 2d 0 -tr nnUNetTrainer_100epochs 
+nnUNetv2_train 011 2d 1 -tr nnUNetTrainer_100epochs 
+nnUNetv2_train 011 2d 2 -tr nnUNetTrainer_100epochs 
+nnUNetv2_train 011 2d 3 -tr nnUNetTrainer_100epochs 
+nnUNetv2_train 011 2d 4 -tr nnUNetTrainer_100epochs 
+nnUNetv2_plan_and_preprocess -d 011 --verify_dataset_integrity
+
