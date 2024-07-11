@@ -4,7 +4,7 @@
 export CUDA_VISIBLE_DEVICES="1"
 
 # Define variables
-arch="vit_b"  # Change this value as needed
+arch="vit_h"  # Change this value as needed
 finetune_type="adapter"
 dataset_name="mastectomy"  # Assuming you set this if it's dynamic
 

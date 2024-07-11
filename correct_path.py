@@ -1,7 +1,7 @@
 # Path to the input file
-input_file_path = 'datasets/mastectomy/images/test.csv'
+input_file_path = 'datasets/nasare/train.csv'
 # Path to the output file
-output_file_path = 'datasets/mastectomy/test.csv'
+output_file_path = 'datasets/nasare/train.csv'
 
 def replace_backslashes(input_file_path, output_file_path):
     # Open the input file in read mode and the output file in write mode
