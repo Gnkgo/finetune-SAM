@@ -3,12 +3,15 @@ import argparse
 def parse_args():    
     parser = argparse.ArgumentParser()
     parser.add_argument('-net', type=str, default='sam', help='net type')
-    parser.add_argument('-arch', type=str, default='vit_b', help='net architecture, pick between vit_h, vit_b, vit_t')
+    parser.add_argument('-arch', type=str, default='vit_h', help='net architecture, pick between vit_h, vit_b, vit_t')
     parser.add_argument('-baseline', type=str, default='unet', help='baseline net type')
     parser.add_argument('-dataset_name', type=str, default='mastectomy', help='the name of dataset to be finetuned')
     
-    parser.add_argument('-img_folder', type=str, default='./datasets/', help='the folder putting images')
-    parser.add_argument('-mask_folder', type=str, default='./datasets/', help='the folder putting masks')
+    parser.add_argument('-img_folder', type=str, default='/cluster/home/jbrodbec/finetune-SAM/datasets/', help='the folder putting images')
+    parser.add_argument('-mask_folder', type=str, default='/cluster/home/jbrodbec/finetune-SAM/datasets/', help='the folder putting masks')
+
+    parser.add_argument('-train_img_list', type=str, default='checkpoints', help='the checkpoint folder to save final model')
+    parser.add_argument('-val_img_list', type=str, default='checkpoints', help='the checkpoint folder to save final model')
 
     parser.add_argument('-finetune_type', type=str, default='adapter', help='normalization type, pick among vanilla,adapter,lora')
     parser.add_argument('-normalize_type', type=str, default='sam', help='normalization type, pick between sam or medsam')
@@ -16,7 +19,7 @@ def parse_args():
     parser.add_argument('-dir_checkpoint', type=str, default='checkpoints', help='the checkpoint folder to save final model')
     parser.add_argument('-num_cls', type=int, default=2, help='the number of output channels (need to be your target cls num +1)')
     parser.add_argument('-epochs', type=int, default=200, help='the number of largest epochs to train')
-    parser.add_argument('-sam_ckpt', type=str, default='sam_vit_b_01ec64.pth', help='the path to the checkpoint to load')
+    parser.add_argument('-sam_ckpt', type=str, default='sam_vit_h_4b8939.pth', help='the path to the checkpoint to load')
     
     parser.add_argument('-type', type=str, default='map', help='condition type:ave,rand,rand_map')
     parser.add_argument('-vis', type=int, default=None, help='visualization')

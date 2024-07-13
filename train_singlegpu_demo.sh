@@ -21,6 +21,5 @@ python SingleGPU_train_finetune_noprompt.py \
     -mask_folder "$img_folder" \
     -sam_ckpt "sam_vit_b_01ec64.pth" \
     -dataset_name "$dataset_name" \
-    -dir_checkpoint "$dir_checkpoint" \
-    -train_img_list "$train_img_list" \
-    -val_img_list "$val_img_list"
+    -dir_checkpoint "$dir_checkpoint" 
+    
