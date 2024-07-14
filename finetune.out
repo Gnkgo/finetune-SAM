@@ -1,0 +1,582 @@
+Eval Epoch num 8 | val loss 0.35192496081193286 | dsc 0.3913041191796462 
+
+largest DSC now: 0.3913041191796462
+Eval Epoch num 10 | val loss 0.33767623205979663 | dsc 0.4120849370956421 
+
+largest DSC now: 0.4120849370956421
+train dataset: mastectomy
+IMAGE FOLDER:  /cluster/home/jbrodbec/finetune-SAM/datasets/
+LIST:  /cluster/home/jbrodbec/finetune-SAM/datasets/mastectomy/train.csv
+MASKPATH mastectomy/masks/mastectomy_000.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_001.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_002.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_003.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_004.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_005.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_006.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_007.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_008.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_009.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_010.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_011.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_012.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_013.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_014.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_015.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_016.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_017.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_018.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_019.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_020.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_021.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_022.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_023.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_024.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_025.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_026.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_027.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_028.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_029.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_030.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_031.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_032.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_033.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_034.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_035.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_036.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_037.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_038.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_039.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_040.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_041.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_042.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_043.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_044.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_045.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_046.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_047.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_048.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_049.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_050.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_051.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_052.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_053.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_054.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_055.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_056.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_057.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_058.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_059.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_060.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_061.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_062.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_063.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_064.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_065.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_066.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_067.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_068.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_069.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_070.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_071.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_072.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_073.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_074.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_075.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_076.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_077.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_078.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_079.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_080.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_081.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_082.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_083.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_084.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_085.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_086.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_087.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_088.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_089.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_090.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_091.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_092.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_093.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_094.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_095.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_096.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_097.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_098.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_099.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_100.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_101.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_102.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_103.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_104.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_105.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_106.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_107.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_108.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_109.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_110.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_111.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_112.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_113.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_114.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_115.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_116.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_117.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_118.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_119.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_120.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_121.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_122.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_123.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_124.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_125.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_126.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_127.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_128.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_129.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_130.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_131.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_132.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_133.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_134.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_135.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_136.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_137.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_138.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_139.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_140.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_141.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_142.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_143.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_144.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_145.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_146.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_147.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_148.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_149.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_150.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_151.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_152.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_153.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_154.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_155.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_156.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_157.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_158.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_159.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_160.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_161.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_162.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_163.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_164.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_165.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_166.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_167.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_168.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_169.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_170.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_171.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_172.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_173.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_174.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_175.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_176.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_177.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_178.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_179.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_180.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+MASKPATH mastectomy/masks/mastectomy_181.png
+MASKFOLDER /cluster/home/jbrodbec/finetune-SAM/datasets/
+num with non-empty masks 180 num with all masks 182
+num with non-empty masks 45 num with all masks 45
+if mask decoder adapter: True
+                                                                            Eval Epoch num 0 | val loss 0.5569704820712408 | dsc 0.019201573682948947 
+
+largest DSC now: 0.019201573682948947
+Eval Epoch num 2 | val loss 0.548906018336614 | dsc 0.01987505905951063 
+
+largest DSC now: 0.01987505905951063
+                                                                             Eval Epoch num 4 | val loss 0.55410269399484 | dsc 0.019264533184468746 
+
+                                                                             Eval Epoch num 6 | val loss 0.5440914084513983 | dsc 0.019269247849782307 
+
+Eval Epoch num 8 | val loss 0.5444780836502711 | dsc 0.019305014129107196 
+
+                                   Eval Epoch num 10 | val loss 0.5235529541969299 | dsc 0.040674456705649696 
+
+largest DSC now: 0.040674456705649696
+Eval Epoch num 12 | val loss 0.508693128824234 | dsc 0.059678309286634125 
+
+largest DSC now: 0.059678309286634125
+Eval Epoch num 14 | val loss 0.30397658546765643 | dsc 0.4270702501138051 
+
+largest DSC now: 0.4270702501138051
+Eval Epoch num 16 | val loss 0.307269811630249 | dsc 0.4306201363603274 
+
+largest DSC now: 0.4306201363603274
+   Eval Epoch num 18 | val loss 0.3780835494399071 | dsc 0.41530533507466316 
+
+Eval Epoch num 20 | val loss 0.30858489871025085 | dsc 0.46566687275966007 
+
+largest DSC now: 0.46566687275966007
+Eval Epoch num 22 | val loss 0.26704351728161174 | dsc 0.48583194861809414 
+
+largest DSC now: 0.48583194861809414
+Eval Epoch num 24 | val loss 0.2718995076914628 | dsc 0.4871254215637843 
+
+largest DSC now: 0.4871254215637843
+                                   Eval Epoch num 26 | val loss 0.2698446313540141 | dsc 0.49347497274478275 
+
+largest DSC now: 0.49347497274478275
+Eval Epoch num 28 | val loss 0.2725561286012332 | dsc 0.4720533887545268 
+
+                                                                                                                Eval Epoch num 30 | val loss 0.27475888406236965 | dsc 0.5046427001555761 
+
+largest DSC now: 0.5046427001555761
+Eval Epoch num 32 | val loss 0.2699384316802025 | dsc 0.4854682832956314 
+
+                                                                           Eval Epoch num 34 | val loss 0.2733615425725778 | dsc 0.48962054153283435 
+
+                                                                                                                Eval Epoch num 36 | val loss 0.25400639449556667 | dsc 0.5096018041173617 
+
+largest DSC now: 0.5096018041173617
+Eval Epoch num 38 | val loss 0.2603408011297385 | dsc 0.5018687471747398 
+
+Eval Epoch num 40 | val loss 0.27547530829906464 | dsc 0.5127534121274948 
+
+largest DSC now: 0.5127534121274948
+                                                                            Eval Epoch num 42 | val loss 0.26248275488615036 | dsc 0.510045034190019 
+
+Eval Epoch num 44 | val loss 0.2697965403397878 | dsc 0.48107531666755676 
+
+                                                                                                            Eval Epoch num 46 | val loss 0.2677043452858925 | dsc 0.49231474349896115 
+
+                                                                             Eval Epoch num 48 | val loss 0.2815096514920394 | dsc 0.5052579045295715 
+
+                                                                          Eval Epoch num 50 | val loss 0.25697985167304677 | dsc 0.5098083019256592 
+
+                                                                             Eval Epoch num 52 | val loss 0.24504838262995085 | dsc 0.5287913233041763 
+
+largest DSC now: 0.5287913233041763
+                                                                            Eval Epoch num 54 | val loss 0.25827208037177724 | dsc 0.5045585831006368 
+
+                                                                           Eval Epoch num 56 | val loss 0.26399455964565277 | dsc 0.5040752440690994 
+
+                                                                          Eval Epoch num 58 | val loss 0.2604110799729824 | dsc 0.5348295842607816 
+
+largest DSC now: 0.5348295842607816
+                                                                                                                Eval Epoch num 60 | val loss 0.42340396096309024 | dsc 0.27304694180687267 
+
+                                                                            Eval Epoch num 62 | val loss 0.2744199298322201 | dsc 0.5066479494174322 
+
+                                                                            Eval Epoch num 64 | val loss 0.2395545057952404 | dsc 0.5348211651047071 
+
+                                                                           Eval Epoch num 66 | val loss 0.2432815097272396 | dsc 0.521263487637043 
+
+                                                                            Eval Epoch num 68 | val loss 0.23976630717515945 | dsc 0.5300654446085294 
+
+                                                                           Eval Epoch num 70 | val loss 0.23931317900617918 | dsc 0.5347137724359831 
+
+                                                                                                               Eval Epoch num 72 | val loss 0.2306638831893603 | dsc 0.5491536483168602 
+
+largest DSC now: 0.5491536483168602
+Eval Epoch num 74 | val loss 0.24400984744230905 | dsc 0.5256772314508756 
+
+                                                                            Eval Epoch num 76 | val loss 0.2352768878142039 | dsc 0.5398638844490051 
+
+ Eval Epoch num 78 | val loss 0.23732898508509 | dsc 0.5385146190722784 
+
+   Eval Epoch num 80 | val loss 0.23099963491161665 | dsc 0.5456569840510687 
+
+                                                                            Eval Epoch num 82 | val loss 0.2298301508029302 | dsc 0.5482322399814924 
+
+                                                                             Eval Epoch num 84 | val loss 0.24439018219709396 | dsc 0.5242088884115219 
+
+Eval Epoch num 86 | val loss 0.22860504314303398 | dsc 0.5525180449088415 
+
+largest DSC now: 0.5525180449088415
+                                                                              Eval Epoch num 88 | val loss 0.22602437312404314 | dsc 0.5545410687724749 
+
+largest DSC now: 0.5545410687724749
+                                                                             Eval Epoch num 90 | val loss 0.22217271476984024 | dsc 0.5604919170339903 
+
+largest DSC now: 0.5604919170339903
+                                                                           Eval Epoch num 92 | val loss 0.2372532698015372 | dsc 0.5406773040692011 
+
+                                                                             Eval Epoch num 94 | val loss 0.22801118095715842 | dsc 0.5535901387532552 
+
+                                                                             Eval Epoch num 96 | val loss 0.2290904459853967 | dsc 0.5506708299120268 
+
+                                                                            Eval Epoch num 98 | val loss 0.21831913044055304 | dsc 0.5639936526616415 
+
+largest DSC now: 0.5639936526616415
+Eval Epoch num 100 | val loss 0.22528923054536185 | dsc 0.5567989523212115 
+
+                                                                            Eval Epoch num 102 | val loss 0.33437923962871235 | dsc 0.5088039288918177 
+
+Eval Epoch num 104 | val loss 0.28144733359416324 | dsc 0.4673834914962451 
+
+                                                                                                          Eval Epoch num 106 | val loss 0.23815668498476347 | dsc 0.5389024118582407 
+
+Eval Epoch num 108 | val loss 0.22660178815325102 | dsc 0.5554757540424665 
+
+Eval Epoch num 110 | val loss 0.24033441146214804 | dsc 0.5264961694677671 
+
+Eval Epoch num 112 | val loss 0.2333579733967781 | dsc 0.545544944703579 
+
+Eval Epoch num 114 | val loss 0.22544207299749056 | dsc 0.5591482917467753 
+
+Eval Epoch num 116 | val loss 0.2241327092051506 | dsc 0.5606968353192011 
+
+Eval Epoch num 118 | val loss 0.2198095309237639 | dsc 0.5692018071810404 
+
+largest DSC now: 0.5692018071810404
+Eval Epoch num 120 | val loss 0.2211017608642578 | dsc 0.563501146932443 
+
+Eval Epoch num 122 | val loss 0.23580527181426683 | dsc 0.5438961784044901 
+
+Eval Epoch num 124 | val loss 0.22557915995518366 | dsc 0.5578596492608389 
+
+Eval Epoch num 126 | val loss 0.21808794885873795 | dsc 0.5714237168431282 
+
+largest DSC now: 0.5714237168431282
+Eval Epoch num 128 | val loss 0.2259098639090856 | dsc 0.5621964707970619 
+
+Eval Epoch num 130 | val loss 0.22618653004368147 | dsc 0.5571675797303518 
+
+Eval Epoch num 132 | val loss 0.22496814901630083 | dsc 0.5598469749093056 
+
+Eval Epoch num 134 | val loss 0.21864629785219827 | dsc 0.5671739007035891 
+
+Eval Epoch num 136 | val loss 0.21890158082048097 | dsc 0.5684361383318901 
+
+Eval Epoch num 138 | val loss 0.2153188685576121 | dsc 0.5713160981734594 
+
+Eval Epoch num 140 | val loss 0.2228568121790886 | dsc 0.5613550618290901 
+
+Eval Epoch num 142 | val loss 0.23010538890957832 | dsc 0.5485859140753746 
+
+Eval Epoch num 144 | val loss 0.22014924387137094 | dsc 0.5665242796142896 
+
+Eval Epoch num 146 | val loss 0.2145470753312111 | dsc 0.5760309596856436 
+
+largest DSC now: 0.5760309596856436
+Eval Epoch num 148 | val loss 0.2174699418246746 | dsc 0.5730153868595759 
+
+Eval Epoch num 150 | val loss 0.21649863198399544 | dsc 0.5740963965654373 
+
+Eval Epoch num 152 | val loss 0.22639506806929907 | dsc 0.5567741890748342 
+
+Eval Epoch num 154 | val loss 0.2143805411954721 | dsc 0.5783261582255363 
+
+largest DSC now: 0.5783261582255363
+Eval Epoch num 156 | val loss 0.21282999217510223 | dsc 0.5820152362187704 
+
+largest DSC now: 0.5820152362187704
+Eval Epoch num 158 | val loss 0.22005681321024895 | dsc 0.5689840937654177 
+
+Eval Epoch num 160 | val loss 0.21414836371938387 | dsc 0.5755412951111794 
+
+Eval Epoch num 162 | val loss 0.21283682311574617 | dsc 0.580198901395003 
+
+Eval Epoch num 164 | val loss 0.22003639365235964 | dsc 0.5661051472028097 
+
+Eval Epoch num 166 | val loss 0.21462898701429367 | dsc 0.578639584283034 
+
+Eval Epoch num 168 | val loss 0.21581571425000826 | dsc 0.5739043081800143 
+
+Eval Epoch num 170 | val loss 0.2134013995528221 | dsc 0.5766937881708145 
+
+Eval Epoch num 172 | val loss 0.21717709427078566 | dsc 0.5718711813290914 
+
+Eval Epoch num 174 | val loss 0.2128402255475521 | dsc 0.5770043333371481 
+
+Eval Epoch num 176 | val loss 0.21197632576028505 | dsc 0.5777632097403208 
+
+Eval Epoch num 178 | val loss 0.21527200440565744 | dsc 0.5774494558572769 
+
+Training finished###########

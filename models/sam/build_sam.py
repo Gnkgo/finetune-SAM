@@ -7,7 +7,7 @@ from functools import partial
 from pathlib import Path
 import urllib.request
 import torch
-
+import torch.nn.functional as F
 from .modeling import (
     ImageEncoderViT,
     MaskDecoder,

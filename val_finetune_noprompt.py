@@ -37,7 +37,7 @@ import json
 
 def main(args,test_image_list):
     # change to 'combine_all' if you want to combine all targets into 1 cls
-    test_dataset = Public_dataset(args,args.img_folder, args.mask_folder, test_img_list,phase='val',targets=['multi_all'],if_prompt=False)
+    test_dataset = Public_dataset(args,args.img_folder, args.mask_folder, test_img_list,phase='val',targets=['combine_all'],if_prompt=False)
     testloader = DataLoader(test_dataset, batch_size=1, shuffle=False, num_workers=1)
     cls_num = 2 # edit the class num 
     if args.finetune_type == 'adapter' or args.finetune_type == 'vanilla':
@@ -57,12 +57,16 @@ def main(args,test_image_list):
     test_gt = []
 
     for i,data in enumerate(tqdm(testloader)):
-        imgs = data['image'].to('cuda')
+        imgs = torchvision.transforms.Resize(1024, 1024)(data['image'])
+        imgs = imgs.to('cuda')
         msks = torchvision.transforms.Resize((args.out_size,args.out_size))(data['mask'])
         msks = msks.to('cuda')
         img_name_list.append(data['img_name'][0])
 
         with torch.no_grad():
+            
+            print('imgs:',imgs.shape)
+            
             img_emb= sam_fine_tune.image_encoder(imgs)
 
             sparse_emb, dense_emb = sam_fine_tune.prompt_encoder(
@@ -103,7 +107,7 @@ def main(args,test_image_list):
     class_iou /=(i+1)
     cls_dsc /=(i+1)
 
-    save_folder = os.path.join('test_results',args.dir_checkpoint)
+    save_folder = os.path.join('/cluster/home/jbrodbec/finetune-SAM/test_results',args.dir_checkpoint)
     Path(save_folder).mkdir(parents=True,exist_ok = True)
     np.save(os.path.join(save_folder,'test_masks.npy'),np.concatenate(pred_msk,axis=0))
     np.save(os.path.join(save_folder,'test_name.npy'),np.concatenate(np.expand_dims(img_name_list,0),axis=0))

@@ -40,7 +40,7 @@ args = cfg.parse_args()
 # comment it if you are not using adapter
 #args.encoder_adapter_depths = [0,1,2,3]
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+#os.environ['CUDA_VISIBLE_DEVICES'] = '3'
 
 def train_model(trainloader,valloader,dir_checkpoint,epochs):
     if args.if_warmup:
@@ -192,8 +192,8 @@ def train_model(trainloader,valloader,dir_checkpoint,epochs):
 if __name__ == "__main__":
     dataset_name = args.dataset_name
     print('train dataset: {}'.format(dataset_name)) 
-    train_img_list = args.img_folder + dataset_name + '/train.csv'
-    val_img_list = args.img_folder + dataset_name + '/val.csv'
+    train_img_list = args.train_img_list
+    val_img_list = args.val_img_list
     
     num_workers = 8
     if_vis = True

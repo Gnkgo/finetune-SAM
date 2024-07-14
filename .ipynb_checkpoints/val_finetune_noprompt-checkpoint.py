@@ -37,9 +37,9 @@ def main(args,test_image_list):
     test_dataset = Public_dataset(args,args.img_folder, args.mask_folder, test_img_list,phase='val',targets=['all'],if_prompt=False)
     testloader = DataLoader(test_dataset, batch_size=1, shuffle=False, num_workers=1)
     cls_num = 2 # edit the class num 
-    if args.finetune_type == 'adapter' or args.finetune_type == 'vanilla'
+    if args.finetune_type == 'adapter' or args.finetune_type == 'vanilla':
         sam_fine_tune = sam_model_registry[args.arch](args,checkpoint=os.path.join(args.dir_checkpoint,'checkpoint_best.pth'),num_classes=cls_num)
-    elif args.finetune_type = 'lora':
+    elif args.finetune_type == 'lora':
         sam = sam_model_registry[args.arch](args,checkpoint=os.path.join(args.sam_ckpt),num_classes=cls_num)
         sam_fine_tune = LoRA_Sam(args,sam,r=4).to('cuda').sam
         sam_fine_tune.load_state_dict(torch.load(args.dir_checkpoint + '/checkpoint_best.pth'), strict = False)
